@@ -1,0 +1,132 @@
+/* To-Do List — plain CSS, no framework. */
+
+:root {
+  --pending-bg: #d6e4f7;
+  --pending-border: #7fa6cf;
+  --completed-bg: #d3ead7;
+  --completed-border: #6aa84f;
+  --accent: #1a73e8;
+  --text: #202124;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: #ffffff;
+  padding: 32px 16px;
+}
+
+.todo-app {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.todo-app__title {
+  text-align: center;
+  font-size: 1.9rem;
+  margin-bottom: 24px;
+}
+
+.todo-app__hint {
+  text-align: center;
+  font-size: 0.95rem;
+  margin-bottom: 14px;
+}
+
+/* ---------- Add form ---------- */
+.todo-form {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 28px 0 24px;
+}
+
+.todo-form__input {
+  flex: 1;
+  font-size: 1rem;
+  padding: 12px 14px;
+  border: 1px solid #5f6368;
+  border-radius: 4px;
+  outline: none;
+}
+
+.todo-form__input:focus {
+  border-color: var(--accent);
+}
+
+/* Circular (+) button */
+.todo-form__add {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  font-size: 1.5rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.todo-form__add:hover {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+/* ---------- Todo list ---------- */
+.todo-list {
+  list-style: none;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  background: var(--pending-bg);
+  border: 1px solid var(--pending-border);
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Completed tasks get a different background so they stand out. */
+.todo-item--completed {
+  background: var(--completed-bg);
+  border-color: var(--completed-border);
+}
+
+.todo-item--completed .todo-item__text {
+  text-decoration: line-through;
+}
+
+.todo-item__text {
+  word-break: break-word;
+}
+
+.todo-item__delete {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.todo-item__delete:hover {
+  color: #c5221f;
+}
